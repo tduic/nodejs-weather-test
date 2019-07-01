@@ -1,0 +1,23 @@
+{
+  "name": "nodejs-weather-app",
+  "version": "1.0.0",
+  "description": "nodejs example using api calls to get weather",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tduic/nodejs-weather-test.git"
+  },
+  "author": "tyler duic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tduic/nodejs-weather-test/issues"
+  },
+  "homepage": "https://github.com/tduic/nodejs-weather-test#readme",
+  "dependencies": {
+    "request": "^2.88.0",
+    "yargs": "^13.2.4"
+  }
+}
