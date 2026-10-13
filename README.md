@@ -47,10 +47,10 @@ npm install
 
 ### Configuration
 
-The OpenWeatherMap API key is currently set in `server.js` via the `apiKey` constant. Replace it with your own key:
+Set your OpenWeatherMap API key in the environment before starting the server:
 
-```js
-const apiKey = 'YOUR_OPENWEATHERMAP_API_KEY';
+```bash
+export OPENWEATHER_API_KEY=your_key_here
 ```
 
 ### Running
