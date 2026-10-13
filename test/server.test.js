@@ -97,3 +97,14 @@ test('POST / escapes the city name returned by the API', async () => {
   assert.doesNotMatch(html, /<script>x<\/script>/);
   assert.match(html, /&lt;script&gt;x&lt;\/script&gt;/);
 });
+
+test('POST / shows the error page when the API replies with non-JSON (and keeps serving)', async () => {
+  for (const body of ['<html>502 Bad Gateway</html>', '', 'null', undefined]) {
+    reply = () => [null, { statusCode: 502 }, body];
+    const res = await postCity('Boston');
+    assert.equal(res.status, 200);
+    assert.match(await res.text(), /<p>Error, please try again<\/p>/, `body: ${body}`);
+  }
+  reply = () => [null, { statusCode: 200 }, JSON.stringify({ main: { temp: 50 }, name: 'Boston' })];
+  assert.match(await (await postCity('Boston')).text(), /50 degrees in Boston/);
+});
