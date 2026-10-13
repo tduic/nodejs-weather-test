@@ -32,6 +32,11 @@ app.post('/', function (req, res) {
   });
 })
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
-});
+// Only listen when run directly (`node server.js`), so tests can import the app.
+if (require.main === module) {
+  app.listen(3000, function () {
+    console.log('Example app listening on port 3000!')
+  });
+}
+
+module.exports = app;
